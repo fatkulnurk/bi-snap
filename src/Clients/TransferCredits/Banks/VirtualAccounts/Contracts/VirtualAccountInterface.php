@@ -1,6 +1,6 @@
 <?php
 
-namespace Fatkulnurk\Snaps\Api\Clients\TransferCredits\Banks\VirtualAccounts\Contracts;
+namespace Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\Contracts;
 use Fatkulnurk\Snaps\Resources\VirtualAccounts\CreateVirtualAccount;
 
 /**
