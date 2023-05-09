@@ -30,7 +30,7 @@ class VirtualAccount implements VirtualAccountInterface
 	{
 		$validator = Validator::make($payload, [
 			'app_id' => ['required', 'string'],
-			'partner_service_id' => ['required', 'string'],
+//			'partner_service_id' => ['required', 'string'],
 			'external_id' => ['required', 'string'],
 			'customer_no' => ['required', 'string'],
 			'va_number' => ['required', 'string'],
