@@ -1,8 +1,8 @@
 <?php
 
-namespace Fatkulnurk\Snaps\Api\Clients\TransferCredits;
+namespace Fatkulnurk\Snaps\Clients\TransferCredits;
 
-use Fatkulnurk\Snaps\Api\TransferCredits\Banks\Bank;
+use Fatkulnurk\Snaps\TransferCredits\Banks\Bank;
 
 /**
  * Class TransferCredit

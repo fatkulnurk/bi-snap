@@ -1,8 +1,8 @@
 <?php
 
-namespace Fatkulnurk\Snaps\Api\Clients\TransferCredits\Banks\VirtualAccounts;
+namespace Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts;
 
-use Fatkulnurk\Snaps\Api\Clients\TransferCredits\Banks\VirtualAccounts\Contracts\VirtualAccountInterface;
+use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\Contracts\VirtualAccountInterface;
 use Fatkulnurk\Snaps\Config\Config;
 use Fatkulnurk\Snaps\Resources\VirtualAccounts\CreateVirtualAccount;
 use Fatkulnurk\Snaps\Resources\VirtualAccounts\DeleteVirtualAccount;

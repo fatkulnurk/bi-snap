@@ -1,9 +1,9 @@
 <?php
 
-namespace Fatkulnurk\Snaps\Api\TransferCredits\Banks;
+namespace Fatkulnurk\Snaps\TransferCredits\Banks;
 
-use Fatkulnurk\Snaps\Api\Clients\TransferCredits\Banks\VirtualAccounts\Contracts\VirtualAccountInterface;
-use Fatkulnurk\Snaps\Api\Clients\TransferCredits\Banks\VirtualAccounts\VirtualAccount;
+use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\Contracts\VirtualAccountInterface;
+use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\VirtualAccount;
 
 /**
  * Class Bank
