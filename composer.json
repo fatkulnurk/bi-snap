@@ -1,0 +1,36 @@
+{
+  "name": "fatkulnurk/snaps",
+  "description": "Implementasi BI SNAP untuk bank BCA",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+	{
+	  "role": "Developer",
+	  "name": "Fatkul Nur Koirudin",
+	  "email": "fatkulnurk@gmail.com",
+	  "homepage": "https://fatkulnurk.github.io"
+	}
+  ],
+  "autoload": {
+	"psr-4": {
+	  "Fatkulnurk\\Snaps\\": "src/"
+	}
+  },
+  "autoload-dev": {
+	"psr-4": {
+	  "Fatkulnurk\\Snaps\\Tests\\": "tests/"
+	}
+  },
+  "require": {
+    "php": "7.*|8.*",
+    "illuminate/database": "8.0|9.*|10.*",
+    "illuminate/support": "8.0|9.*|10.*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+	"sort-packages": true,
+	"preferred-install": "dist",
+	"optimize-autoloader": true
+  }
+}
