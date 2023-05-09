@@ -23,8 +23,8 @@
   },
   "require": {
     "php": "7.*|8.*",
-    "illuminate/database": "8.0|9.*|10.*",
-    "illuminate/support": "8.0|9.*|10.*"
+    "illuminate/database": "*",
+    "illuminate/support": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
