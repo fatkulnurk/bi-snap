@@ -26,6 +26,8 @@ class Config
 	private string $appId = '';
 	private string $partnerServiceId = '';
 
+	private string $corporateCode = '';
+
 	// 1 = personal, 2 = bisnis
 	private int $privateAppCode = 1;
 
@@ -199,6 +201,25 @@ class Config
 	public function setPrivateAppCode(int $privateAppCode): Config
 	{
 		$this->privateAppCode = $privateAppCode;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCorporateCode(): string
+	{
+		return $this->corporateCode;
+	}
+
+	/**
+	 * @param string $corporateCode
+	 *
+	 * @return Config
+	 */
+	public function setCorporateCode(string $corporateCode): Config
+	{
+		$this->corporateCode = $corporateCode;
 		return $this;
 	}
 }
