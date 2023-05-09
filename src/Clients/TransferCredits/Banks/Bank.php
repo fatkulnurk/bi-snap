@@ -14,6 +14,9 @@ use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\VirtualAccoun
  **/
 class Bank
 {
+	/**
+	 * @return VirtualAccountInterface
+	 */
 	public function virtualAccount(): VirtualAccountInterface
 	{
 		return new VirtualAccount();

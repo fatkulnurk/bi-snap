@@ -2,7 +2,7 @@
 
 namespace Fatkulnurk\Snaps;
 
-use Fatkulnurk\Snaps\Api\Clients\TransferCredits\TransferCredit;
+use Fatkulnurk\Snaps\Clients\TransferCredits\TransferCredit;
 use Fatkulnurk\Snaps\Servers\Webhooks\Webhook;
 
 /**
@@ -14,12 +14,18 @@ use Fatkulnurk\Snaps\Servers\Webhooks\Webhook;
  **/
 class Snap
 {
-	public function transferCredit()
+	/**
+	 * @return TransferCredit
+	 */
+	public function transferCredit(): TransferCredit
 	{
 		return new TransferCredit();
 	}
 
-	public function webhook()
+	/**
+	 * @return Webhook
+	 */
+	public function webhook(): Webhook
 	{
 		return new Webhook();
 	}

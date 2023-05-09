@@ -2,7 +2,7 @@
 
 namespace Fatkulnurk\Snaps\Clients\TransferCredits;
 
-use Fatkulnurk\Snaps\TransferCredits\Banks\Bank;
+use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\Bank;
 
 /**
  * Class TransferCredit
@@ -12,7 +12,10 @@ use Fatkulnurk\Snaps\TransferCredits\Banks\Bank;
  **/
 class TransferCredit
 {
-	public function bank()
+	/**
+	 * @return Bank
+	 */
+	public function bank(): Bank
 	{
 		return new Bank();
 	}
