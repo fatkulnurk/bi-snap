@@ -26,6 +26,9 @@ class Config
 	private string $appId = '';
 	private string $partnerServiceId = '';
 
+	// 1 = personal, 2 = bisnis
+	private int $privateAppCode = 1;
+
 	/**
 	 *
 	 */
@@ -177,6 +180,25 @@ class Config
 	public function setScope(string $scope): Config
 	{
 		$this->scope = $scope;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getPrivateAppCode(): int
+	{
+		return $this->privateAppCode;
+	}
+
+	/**
+	 * @param int $privateAppCode
+	 *
+	 * @return Config
+	 */
+	public function setPrivateAppCode(int $privateAppCode): Config
+	{
+		$this->privateAppCode = $privateAppCode;
 		return $this;
 	}
 }
