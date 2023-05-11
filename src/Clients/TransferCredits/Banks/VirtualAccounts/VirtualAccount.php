@@ -2,6 +2,7 @@
 
 namespace Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts;
 
+use Carbon\CarbonImmutable;
 use Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\Contracts\VirtualAccountInterface;
 use Fatkulnurk\Snaps\Config\Config;
 use Fatkulnurk\Snaps\Resources\VirtualAccounts\CreateVirtualAccount;
@@ -47,7 +48,7 @@ class VirtualAccount implements VirtualAccountInterface
 		}
 
 		$url = Config::getInstance()->getHost() . '/api/transaction';
-		$response =  $this->getHttpClient()->post($url, $payload);
+		$response = $this->getHttpClient()->post($url, $payload);
 
 		return (new CreateVirtualAccount())
 			->setExternalId($payload['external_id'])
@@ -64,14 +65,32 @@ class VirtualAccount implements VirtualAccountInterface
 	 */
 	public function inquiryStatus(string $externalId): InquiryStatusVirtualAccount
 	{
-		$url = Config::getInstance()->getHost() . '/api/inquiry-status/' . $externalId;
+		$url = Config::getInstance()->getHost() . '/api/transaction-status/' . $externalId;
 		$response = $this->getHttpClient()->get($url);
+
+		$isSuccess = $response->ok();
+		$data = $response->json()['data'] ?? [];
+		$status = 'PENDING';
+		if ($isSuccess) {
+			if (filled($data['paid_at'] ?? null)) {
+				$status = 'SUCCESS';
+			} else {
+				if (CarbonImmutable::parse($data['expired_at'])->lte(CarbonImmutable::now())) {
+					$status = 'EXPIRED';
+				} else {
+					$status = 'PENDING';
+				}
+			}
+		}
 
 		return (new InquiryStatusVirtualAccount())
 			->setExternalId($externalId)
-			->setIsSuccess($response->ok())
+			->setIsSuccess($isSuccess)
 			->setMessage(($response->json()['message'] ?? $response->reason()))
-			->setData($response->json()['data'] ?? []);
+			->setData([
+				'payment_status' => $status,
+				'data' => $data
+			]);
 	}
 
 	public function delete(string $externalId): DeleteVirtualAccount
