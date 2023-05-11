@@ -19,7 +19,7 @@ class Webhook
 	 *
 	 * @return array
 	 */
-	public function dispatch($app, WebhookResource $webhookResource)
+	public function dispatch($app, WebhookResource $webhookResource): array
 	{
 		$response = null;
 		if (filled($app->webhook ?? '')) {
