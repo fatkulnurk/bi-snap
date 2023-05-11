@@ -22,7 +22,7 @@ class Webhook
 	public function dispatch($app, WebhookResource $webhookResource)
 	{
 		$response = null;
-		if (filled($app->webhook)) {
+		if (filled($app->webhook ?? '')) {
 			$response = Http::withHeaders([
 				'Content-Type' => 'application/json',
 				'X-Partner-Key' => $app->id,
