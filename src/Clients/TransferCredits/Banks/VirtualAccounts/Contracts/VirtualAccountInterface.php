@@ -11,9 +11,24 @@ use Fatkulnurk\Snaps\Resources\VirtualAccounts\CreateVirtualAccount;
  **/
 interface VirtualAccountInterface
 {
-
+	/**
+	 * @param array $payload
+	 *
+	 * @return CreateVirtualAccount
+	 */
 	public function create(array $payload): CreateVirtualAccount;
 
+	/**
+	 * @param string $externalId
+	 *
+	 * @return mixed
+	 */
 	public function inquiryStatus(string $externalId);
+
+	/**
+	 * @param string $externalId
+	 *
+	 * @return mixed
+	 */
 	public function delete(string $externalId);
 }

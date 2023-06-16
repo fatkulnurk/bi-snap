@@ -22,11 +22,11 @@ class VirtualAccount implements VirtualAccountInterface
 	use HttpClient;
 
 	/**
-	 * Dipakai untuk ngebuat virtual akun
-	 * CALL create transaction
+	 * @param array $payload
 	 *
+	 * @return CreateVirtualAccount
 	 * @throws \Exception
-	 **/
+	 */
 	public function create(array $payload): CreateVirtualAccount
 	{
 		$validator = Validator::make($payload, [
@@ -57,11 +57,10 @@ class VirtualAccount implements VirtualAccountInterface
 			->setData($response->json()['data'] ?? []);
 	}
 
-	/***
-	 * ini untuk cek status pembayaran
-	 ***
+	/**
+	 * @param string $externalId
 	 *
-	 * @throws \Exception
+	 * @return InquiryStatusVirtualAccount
 	 */
 	public function inquiryStatus(string $externalId): InquiryStatusVirtualAccount
 	{
@@ -93,6 +92,11 @@ class VirtualAccount implements VirtualAccountInterface
 			]);
 	}
 
+	/**
+	 * @param string $externalId
+	 *
+	 * @return DeleteVirtualAccount
+	 */
 	public function delete(string $externalId): DeleteVirtualAccount
 	{
 		$url = Config::getInstance()->getHost() . '/api/delete-va/' . $externalId;

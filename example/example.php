@@ -52,14 +52,14 @@ $va->inquiryStatus($externalId);
 
 
 // terima webhook
-$webhookResource = (new Snap())->webhook()->dispatch($app, (new Request()));
+$webhookResource = (new Snap())->webhook()->retrieve((new Request()));
 
 /*
  * SERVER
  *
  * dari aplikasi bca ke aplikasi personal atau bisnis
  * */
-$app = \App\Models\App::first();
+$app = \App\Models\App::query()->first();
 $response = (new Snap())->webhook()->dispatch($app, (new WebhookResource())
 	->setExternalId('')
 	->setType('')
