@@ -40,7 +40,7 @@ class VirtualAccount implements VirtualAccountInterface
 			'va_phone_number' => ['nullable', 'string'],
 			'amount' => ['required', 'numeric', 'min:1'],
 			'payment_details.*' => ['nullable'],
-			'expired_at' => ['required', 'date'],
+			'expired_at' => ['required', 'datetime'],
 		]);
 
 		if ($validator->fails()) {
