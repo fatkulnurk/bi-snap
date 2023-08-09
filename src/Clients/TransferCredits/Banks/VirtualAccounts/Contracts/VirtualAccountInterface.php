@@ -1,7 +1,10 @@
 <?php
 
 namespace Fatkulnurk\Snaps\Clients\TransferCredits\Banks\VirtualAccounts\Contracts;
+
 use Fatkulnurk\Snaps\Resources\VirtualAccounts\CreateVirtualAccount;
+use Fatkulnurk\Snaps\Resources\VirtualAccounts\DeleteVirtualAccount;
+use Fatkulnurk\Snaps\Resources\VirtualAccounts\InquiryStatusVirtualAccount;
 
 /**
  * Interface VirtualAccountInterface
@@ -21,14 +24,14 @@ interface VirtualAccountInterface
 	/**
 	 * @param string $externalId
 	 *
-	 * @return mixed
+	 * @return InquiryStatusVirtualAccount
 	 */
-	public function inquiryStatus(string $externalId);
+	public function inquiryStatus(string $externalId): InquiryStatusVirtualAccount;
 
 	/**
 	 * @param string $externalId
 	 *
-	 * @return mixed
+	 * @return DeleteVirtualAccount
 	 */
-	public function delete(string $externalId);
+	public function delete(string $externalId): DeleteVirtualAccount;
 }

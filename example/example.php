@@ -4,6 +4,7 @@ use Carbon\CarbonImmutable;
 use Fatkulnurk\Snaps\Config\Config;
 use Fatkulnurk\Snaps\Resources\WebhookResource;
 use Fatkulnurk\Snaps\Snap;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
 
 require_once '../vendor/autoload.php';
@@ -66,3 +67,37 @@ $response = (new Snap())->webhook()->dispatch($app, (new WebhookResource())
 	->setEvent('')
 	->setData([])
 );
+
+
+$command = new class {
+	private array $commands = [];
+	private string $action;
+
+	public function setCommand(string $action, callable $callback): void {
+		$this->commands[] = compact('action', 'callback');
+	}
+
+	public function setAction($action)
+	{
+		$this->action = $action;
+	}
+
+	public function run()
+	{
+		$action = collect($this->commands)->firstWhere('action', $this->action);
+
+		if (blank($action)) {
+			throw new Exception('Command not found');
+		}
+
+		$query = [];
+		$action['callback']($query);
+	}
+};
+
+$command->setCommand('bot xxx', function ($query) {
+	echo 'bot';
+});
+
+$command->setAction('x');
+$command->run();
